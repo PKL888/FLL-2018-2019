@@ -1,6 +1,7 @@
 package Navigation;
 
 import EV3.MoveTank;
+import EV3.Controller;
 
 public class CoordinatesNavigation {
 
@@ -11,8 +12,8 @@ public class CoordinatesNavigation {
 	 * @param angle
 	 * @param speed
 	 */
-	public void turnInSpot(double wheelDiameter, double trackWidth, double angle, int speed) {
-		double angleToTurn = trackWidth * angle / wheelDiameter;
+	public void turnInSpot(double angle, int speed) {
+		double angleToTurn = Controller.getTrackWidth * angle / Controller.getWheelDiameter;
 		MoveTank.onForDegrees(-1*speed, speed, (int)angleToTurn, true);
 	}
 	
